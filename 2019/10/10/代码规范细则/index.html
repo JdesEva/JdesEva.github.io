@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="代码规范细则"><meta name="keywords" content="other"><meta name="author" content="Jdes"><meta name="copyright" content="Jdes"><title>代码规范细则 | 沧海鲸歌</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '3.9.0'
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端代码规范细则"><span class="toc-text">前端代码规范细则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#强制"><span class="toc-text">强制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#非强制"><span class="toc-text">非强制</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37232561?s=460&amp;v=4"></div><div class="author-info__name text-center">Jdes</div><div class="author-info__description text-center">禅道上bug修完了吗?~!</div><div class="follow-button"><a href="https://github.com/JdesEva">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">12</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">3</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">沧海鲸歌</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/tags/frame">Frame</a><a class="site-page" href="/tags/other">Other</a><a class="site-page" href="/tags/algorithm">Algorithm</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">代码规范细则</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-10</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">614</span><span class="post-meta__separator">|</span><span>阅读时长: 2 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h3 id="前端代码规范细则"><a href="#前端代码规范细则" class="headerlink" title="前端代码规范细则"></a>前端代码规范细则</h3><p>本细则分为强制和非强制内容，欢迎提出 issue</p>
+<h4 id="强制"><a href="#强制" class="headerlink" title="强制"></a>强制</h4><ul>
+<li><p>强制使用<code>eslint</code></p>
+</li>
+<li><p>函数注释强制使用<code>jsDoc</code>注释，即 <code>/**</code> 开头的注释格式</p>
+</li>
+<li><p>代码结尾一律不得加<code>;</code>，此项可以由<code>prettier</code>格式化工具自动实现</p>
+</li>
+<li><p>字符串一律使用单引号<code>&#39;&#39;</code>，多行字符串一律使用模板字符串</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">`adf</span></span><br><span class="line"><span class="string">dasd</span></span><br><span class="line"><span class="string">888</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<ul>
+<li><p>不得使用<code>eval</code></p>
+</li>
+<li><p>不得使用<code>==</code>，一律使用<code>===</code>，<code>!==</code></p>
+</li>
+<li><p>对象（包含数组）格式，逗号，冒号后面需要留空格，运算符前后需要留空格。此项也可以由代码格式化工具实现，注意即可</p>
+</li>
+</ul>
+<blockquote>
+<p>例子如下</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="keyword">var</span> b = &#123; <span class="attr">c</span>: <span class="number">7</span>, <span class="attr">d</span>: <span class="number">9</span> &#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="number">8</span> * <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>不得使用<code>delete</code>关键字删除对象属性，如确需需要删除属性，使用<code>Reflect.deleteProperty</code>进行操作</p>
+</li>
+<li><p>不得使用隐式转换进行代码运算操作，例如</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">100</span> + <span class="string">'e'</span> <span class="comment">// '100e'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>函数命名务必简洁明了，力求能通过函数名得出函数作用，减少无关注释</p>
+</li>
+<li><p>公共函数一律使用<code>__</code>开头命名，并且首字母大写，例如</p>
+</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 防抖函数</span></span><br><span class="line"><span class="comment"> * @param &#123;Function&#125; method 事件触发的操作,fn</span></span><br><span class="line"><span class="comment"> * @param &#123;Number&#125; [delay = 500] - delay 多少毫秒内连续触发事件，不会执行</span></span><br><span class="line"><span class="comment"> * @returns &#123;Function&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">__Debounce</span>(<span class="params">method: <span class="built_in">Function</span>, delay: <span class="built_in">number</span> = 500</span>): <span class="title">Function</span> </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> timer: <span class="built_in">number</span> | <span class="literal">null</span> = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"><span class="keyword">this</span>: <span class="built_in">any</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">let</span> args = <span class="built_in">arguments</span></span><br><span class="line">    timer &amp;&amp; clearTimeout(timer)</span><br><span class="line">    timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      method.apply(self, args)</span><br><span class="line">    &#125;, delay)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>拥有返回值的函数必须考虑<strong>边界情况</strong>，不得存在边界条件下没有返回值的情况</p>
+</li>
+<li><p>使用<code>import</code>语法不得使用<code>import * as</code>结果语法，确需引用多个，请使用解构语法</p>
+</li>
+<li><p>DOM 对象不得使用数组储存，一律使用<code>WeakMap</code>和<code>WeakSet</code></p>
+</li>
+<li><p>数组存储数据不得超出数组长度，js 数组最大长度为 0xFFFFFFFF = 4294967295</p>
+</li>
+<li><p>错误处理</p>
+</li>
+<li><p>不得轻易修改函数原型，确需修改，则不应向用户暴露接口</p>
+</li>
+</ul>
+<h4 id="非强制"><a href="#非强制" class="headerlink" title="非强制"></a>非强制</h4><ul>
+<li><p>推荐使用 Typescript</p>
+</li>
+<li><p>解构语法、对象等首尾留空，例如</p>
+</li>
+</ul>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Component, Vue, Provide, Watch &#125; <span class="keyword">from</span> <span class="string">'vue-property-decorator'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>对象键名不使用数字</p>
+</li>
+<li><p>能使用箭头函数<code>=&gt;</code>，就不用普通函数</p>
+</li>
+<li><p>能使用<code>es6</code>新特性就用新特性</p>
+</li>
+<li><p>递归尽量使用尾递归</p>
+</li>
+<li><p>对象浅复制，对象合并尽量使用扩展运算符<code>...</code></p>
+</li>
+<li><p>取整少用<code>parseInt</code></p>
+</li>
+<li><p>少用<code>try{}catch(e){}</code>语法</p>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jdes</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jdeseva.github.io/2019/10/10/代码规范细则/">https://jdeseva.github.io/2019/10/10/代码规范细则/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jdeseva.github.io">沧海鲸歌</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/other/">other</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/09/28/CI-CD之容器化/"><i class="fa fa-chevron-left">  </i><span>CI/CD之容器化</span></a></div><div class="next-post pull-right"><a href="/2019/10/09/前端开发流程规范/"><span>前端开发流程规范</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '4f470a0032c7b5b98c25',
+  clientSecret: 'f4bccc7c504a2d96f617e633a8a684a16583c99f',
+  repo: 'JdesEva.github.io',
+  owner: 'JdesEva',
+  admin: 'JdesEva',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2022 By Jdes</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

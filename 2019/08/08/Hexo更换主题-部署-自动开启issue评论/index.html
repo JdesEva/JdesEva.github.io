@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Hexo更换主题&amp;部署&amp;自动开启issue评论"><meta name="keywords" content="other"><meta name="author" content="Jdes"><meta name="copyright" content="Jdes"><title>Hexo更换主题&amp;部署&amp;自动开启issue评论 | 沧海鲸歌</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '3.9.0'
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo"><span class="toc-text">Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-使用"><span class="toc-text">Hexo 使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-更换主题"><span class="toc-text">Hexo 更换主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-开启评论功能"><span class="toc-text">Hexo 开启评论功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动创建-issue"><span class="toc-text">自动创建 issue</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37232561?s=460&amp;v=4"></div><div class="author-info__name text-center">Jdes</div><div class="author-info__description text-center">禅道上bug修完了吗?~!</div><div class="follow-button"><a href="https://github.com/JdesEva">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">12</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">3</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">沧海鲸歌</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/tags/frame">Frame</a><a class="site-page" href="/tags/other">Other</a><a class="site-page" href="/tags/algorithm">Algorithm</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">Hexo更换主题&amp;部署&amp;自动开启issue评论</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-08</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.5k</span><span class="post-meta__separator">|</span><span>阅读时长: 4 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>什么是 Hexo？</p>
+<p>Hexo 一个基于 Node.js 的静态博客写作工具（大致可以这么理解），轻量，方便，<del>高逼格</del>是其最大的优点。它的主要特点就是将我们书写的 markdown 文档转化为页面，然后可以由我们自由部署到个人的服务器，或者 Github Page。</p>
+<h3 id="Hexo-使用"><a href="#Hexo-使用" class="headerlink" title="Hexo 使用"></a>Hexo 使用</h3><p>Hexo 具体如何使用，网络上有很多文章，这边也不一一列举。推荐一下<a href="https://github.com/mutoe" target="_blank" rel="noopener">mutoe</a>写的博客。</p>
+<blockquote>
+<p><a href="https://blog.mutoe.com/2016/github-pages-hexo-blog/" target="_blank" rel="noopener">使用 GitHub Pages 和 Hexo 搭建自己的静态博客</a></p>
+</blockquote>
+<h3 id="Hexo-更换主题"><a href="#Hexo-更换主题" class="headerlink" title="Hexo 更换主题"></a>Hexo 更换主题</h3><p>当我们照着<a href="https://github.com/mutoe" target="_blank" rel="noopener">mutoe</a>的文章初始化之后，并且通过 hexo server 运行本地服务之后，就会发现 Hexo 的默认主题，很古老，<del>有点呆板</del>。作为前端 + 强迫症，我并不能接受这种主题，好在 Hexo 给我们提供了更换主题的功能（这也是我觉得 Hexo 最 Nice 的地方!）。</p>
+<a id="more"></a>
+
+<p>Hexo 社区给我们提供了许多可选主题（感谢这些主题的开发者们，让我们能自己挑选自己喜欢的博客主题！），所有的主题列表可以参考<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo 主题</a>。</p>
+<p>Hexo 更换主题很简单，只需要通过 git clone 命令，将自己喜欢的主题文件 clone 到根目录下面的 themes 文件夹下，然后修改根目录下面的 _config.yml ，找到 theme 选项，将其改为你 clone 下来的主题文件的包名，例如</p>
+<p><img src="//jdeseva.github.io/2019/08/08/Hexo更换主题-部署-自动开启issue评论/theme.png" alt="Hexo更换主题配置"></p>
+<blockquote>
+<p>之后文章均以 melody 主题作为替换之后的主题</p>
+</blockquote>
+<p>当然，Hexo 配置也有几个比较坑爹的地方，比如配置文件中的 keywords，它接受一个数组，但是！！！重点来了， .yml 文件的数组格式是下面这个样子的</p>
+<p><img src="//jdeseva.github.io/2019/08/08/Hexo更换主题-部署-自动开启issue评论/keyword.png" alt="keyword配置"></p>
+<blockquote>
+<p>如果不按照上面的格式配置 .yml 的数组就会构建报错</p>
+</blockquote>
+<p>配置完这些，然后确认主题文件所需求的依赖都已经安装完毕，我们就可以愉快的把更换主题之后的 Hexo 跑起来了。</p>
+<p><img src="//jdeseva.github.io/2019/08/08/Hexo更换主题-部署-自动开启issue评论/Home.png" alt="melody主题"></p>
+<blockquote>
+<p>这里插播一个安利，安利一首歌，也是我的博客名字，来自歌手青山テルマ的<a href="https://music.163.com/#/search/m/?s=%E3%81%9D%E3%81%B0%E3%81%AB%E3%81%84%E3%82%8B%E3%81%AD&type=1&market=baiduqk" target="_blank" rel="noopener">そばにいるね</a>。真的很好听！！！</p>
+</blockquote>
+<blockquote>
+<p>很多主题都为使用者提供了丰富的插件配置项，使用者可以自由配置。<br>melody 也一样，具体可以参考<a href="https://molunerfinn.com/hexo-theme-melody-doc/zh-Hans/" target="_blank" rel="noopener">melody 文档</a></p>
+</blockquote>
+<h3 id="Hexo-开启评论功能"><a href="#Hexo-开启评论功能" class="headerlink" title="Hexo 开启评论功能"></a>Hexo 开启评论功能</h3><p>首先此功能多数是主题附带的功能，当然也可以独立配置评论插件（这个过程可能会很繁琐）。</p>
+<p>这里我们使用 melody 附带的<a href="https://molunerfinn.com/hexo-theme-melody-doc/zh-Hans/third-party-support.html#%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">评论系统</a>，它支持很多的评论插件，这里使用<a href="https://github.com/gitalk/gitalk" target="_blank" rel="noopener">gitalk</a>。</p>
+<p>首先根据 gitalk 官方的说明<a href="https://github.com/gitalk/gitalk" target="_blank" rel="noopener">文档</a>，我们需要去<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">github 申请</a>一下对应的<strong>GitHub Application</strong>。</p>
+<p>申请完毕之后，我们按照 Hexo 文档配置 gitalk，在主题下面的 _config.yml 中找到下面这段配置，输入自己的信息即可</p>
+<blockquote>
+<p>强烈推荐在 source 文件夹下面新建_data 文件后创建 melody.yml ，然后复制<strong>主题文件夹下</strong>的（划重点） _config.yml 内容到 melody.yml ，之后所有关于主题的配置均在 melody.yml 下配置修改即可，且可以做到平滑升级。</p>
+</blockquote>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">gitalk:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">client_id:</span> <span class="string">你的client</span> <span class="string">id</span></span><br><span class="line">  <span class="attr">client_secret:</span> <span class="string">你的client</span> <span class="string">secret</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">你的github仓库</span></span><br><span class="line">  <span class="attr">owner:</span> <span class="string">你的github用户名</span></span><br><span class="line">  <span class="attr">admin:</span> <span class="string">该仓库的拥有者或协作者</span></span><br></pre></td></tr></table></figure>
+
+<p>配置完以上内容之后，博客的评论系统正常是可以使用了，大概样子如下</p>
+<p><img src="//jdeseva.github.io/2019/08/08/Hexo更换主题-部署-自动开启issue评论/gitalk.png" alt="gitalk"></p>
+<p>但是我们忽略了一点，因为 gitalk 的评论内容是基于 github issue 的，但是 github 的内容不会主动创建 issue，所以，我们就需要写一个博客，自己去创建 issue。。。。</p>
+<h3 id="自动创建-issue"><a href="#自动创建-issue" class="headerlink" title="自动创建 issue"></a>自动创建 issue</h3><p>对于不能自动创建 issue 的情况，我当然不能忍（因为创建 issue 很麻烦），于是我翻阅资料，终于在 CSDN 上找到一篇文章介绍如何<a href="https://daihaoxin.github.io/post/322747ae.html" target="_blank" rel="noopener">自动创建 issue</a>。</p>
+<p>根据上面文章的介绍，依葫芦画瓢，简单分为以下几个步骤（具体内容请翻看下面的文章）</p>
+<blockquote>
+<p><a href="https://daihaoxin.github.io/post/322747ae.html" target="_blank" rel="noopener">nodejs 版本的 Gitalk/Gitment 评论自动初始化</a></p>
+</blockquote>
+<ul>
+<li><p>生成 sitemap 站点地图</p>
+</li>
+<li><p>获取 github 接口的调用权限</p>
+</li>
+<li><p>安装依赖包</p>
+</li>
+<li><p>创建脚本文件</p>
+</li>
+<li><p>调用脚本</p>
+</li>
+</ul>
+<p>由于上文详细的介绍了每个步骤，这里就不重复介绍。</p>
+<p>但是依照上面的步骤，根据上文的脚本代码运行脚本会报错</p>
+<p>报错信息如下</p>
+<p><img src="//jdeseva.github.io/2019/08/08/Hexo更换主题-部署-自动开启issue评论/error.png" alt="error"></p>
+<p>报错信息很简单，找不到 find 函数。</p>
+<p>思考一下 find 函数，find 函数是数组才有的方法，如果找不到这个函数，就意味着 issues 并不是一个数组（实际上去打印 issues 会发现它其实一个对象）</p>
+<p>考虑到源代码后续的方法问题，因此，我们只需要加上下面这句话</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (!issues.length) issues = []</span><br></pre></td></tr></table></figure>
+
+<p>更新完毕之后的脚本代码如下</p>
+<p><img src="//jdeseva.github.io/2019/08/08/Hexo更换主题-部署-自动开启issue评论/fix.png" alt="code"></p>
+<p>然后我们保存 comment.js 文件</p>
+<p>确认依赖安装完毕，然后我们执行以下脚本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy &amp;&amp; node comment.js</span><br></pre></td></tr></table></figure>
+
+<p>顺利的话这个时候，运行结果应该和下图类似</p>
+<p><img src="//jdeseva.github.io/2019/08/08/Hexo更换主题-部署-自动开启issue评论/issue.png" alt="运行成功"></p>
+<p>为了方便起见，我们也可以在 package.json 里面加上下面的脚本，方便以后一键式进行博客的测试部署</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">"scripts": &#123;</span><br><span class="line">    "push": "hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy &amp;&amp; node comment.js",</span><br><span class="line">    "dev": "hexo clean &amp;&amp; hexo generate &amp;&amp; hexo server"</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>至此，我们大功告成。成功之后点开博客，会发现博客末尾自动开启了 issue</p>
+<p><img src="//jdeseva.github.io/2019/08/08/Hexo更换主题-部署-自动开启issue评论/comment.png" alt="评论区"></p>
+<blockquote>
+<p>可能会出现提示还未初始化的问题，这个时候只需要点击一下登录按钮，进行登录即可显示出评论区。<br>此问题会有概率出现，可能是 github 服务器问题或者国内网络问题。</p>
+</blockquote>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jdes</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jdeseva.github.io/2019/08/08/Hexo更换主题-部署-自动开启issue评论/">https://jdeseva.github.io/2019/08/08/Hexo更换主题-部署-自动开启issue评论/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jdeseva.github.io">沧海鲸歌</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/other/">other</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2019/08/13/由filter说开去/"><i class="fa fa-chevron-left">  </i><span>由filter说开去</span></a></div><div class="next-post pull-right"><a href="/2019/08/07/element-ui-表格滚动条插件/"><span>element-ui 表格滚动条插件</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '4f470a0032c7b5b98c25',
+  clientSecret: 'f4bccc7c504a2d96f617e633a8a684a16583c99f',
+  repo: 'JdesEva.github.io',
+  owner: 'JdesEva',
+  admin: 'JdesEva',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2022 By Jdes</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

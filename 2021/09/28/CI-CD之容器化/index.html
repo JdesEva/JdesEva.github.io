@@ -1,0 +1,104 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="CI/CD之容器化"><meta name="keywords" content="frame"><meta name="author" content="Jdes"><meta name="copyright" content="Jdes"><title>CI/CD之容器化 | 沧海鲸歌</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '3.9.0'
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CI-CD之容器化"><span class="toc-text">CI/CD之容器化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#发布模式"><span class="toc-text">发布模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-入门"><span class="toc-text">Docker 入门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-安装"><span class="toc-text">Docker 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-常用命令"><span class="toc-text">Docker 常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dockerfile"><span class="toc-text">Dockerfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker进阶"><span class="toc-text">Docker进阶</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37232561?s=460&amp;v=4"></div><div class="author-info__name text-center">Jdes</div><div class="author-info__description text-center">禅道上bug修完了吗?~!</div><div class="follow-button"><a href="https://github.com/JdesEva">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">12</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">3</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">沧海鲸歌</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/tags/frame">Frame</a><a class="site-page" href="/tags/other">Other</a><a class="site-page" href="/tags/algorithm">Algorithm</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">CI/CD之容器化</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-09-28</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.5k</span><span class="post-meta__separator">|</span><span>阅读时长: 5 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="CI-CD之容器化"><a href="#CI-CD之容器化" class="headerlink" title="CI/CD之容器化"></a>CI/CD之容器化</h1><p>自古以来，程序猿最头痛的事情就是环境配置，有相当一部分的程序，只能运行在特定环境上，比如<code>sketch</code>只支持Mac。那么我怎么做到别的环境也能运行这个程序？并且原封不动的保证功能完好？答案大概只有容器化。</p>
+<blockquote>
+<p>容器化，大体上指将服务，代码等运行在一个容器中，也可以理解为一个沙箱。在前端服务越发复杂的今天，容器化的推进将直接关乎前端发布部署的体验以及后续维护成本的高低。</p>
+</blockquote>
+<p>容器化有不少技术，包括虚拟机，<code>Docker</code>等等。</p>
+<p>在 <code>Docker</code> 技术成熟的今天，容器化大部分都是由 <code>Docker</code> 体系为基础构建。<a href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html" target="_blank" rel="noopener">什么是<code>Docker</code>?</a>，可以提供参考。</p>
+<a id="more"></a>
+<h2 id="发布模式"><a href="#发布模式" class="headerlink" title="发布模式"></a>发布模式</h2><p>首先我们联系一下在没有容器化情况下的开发模式，大体如下</p>
+<ul>
+<li>推送代码</li>
+<li>打包构建</li>
+<li>发布到服务器</li>
+<li>配置<code>nginx</code>代理</li>
+</ul>
+<p>按照正常情况下，服务器上只会存在一个 <code>nginx</code>，如果前端项目无限扩充，那么<code>nginx</code>配置文件将会乱做一团糟（尤其是没有配置<code>nginx</code>模块化配置的情况下）</p>
+<p>如果切换到容器化的发布模式，将优化为以下两步</p>
+<ul>
+<li>构建容器</li>
+<li>运行容器</li>
+</ul>
+<p>乍一看可能没什么大的优点，但是如果需要环境迁移，分布式部署，以及单一版本验证等场景下，容器化将是普通发布模式无可替代的。</p>
+<h2 id="Docker-入门"><a href="#Docker-入门" class="headerlink" title="Docker 入门"></a>Docker 入门</h2><blockquote>
+<p>Docker是一个开源的商用技术，在此只讨论社区版（<del>贫穷使我理智</del>）。</p>
+</blockquote>
+<p>我们这里需要首先了解几个概念</p>
+<ul>
+<li>宿主机</li>
+<li>镜像</li>
+<li>容器</li>
+<li>标签</li>
+</ul>
+<p>宿主机，顾名思义，指的是容器运行所依赖的环境，说白了，就是你部署服务的地方，可以是Windows，也可以是Linux，还可以是Mac。</p>
+<p>镜像（<code>images</code>），在<code>Docker</code>体系下，指的是应用以及依赖等打包成一个二进制文件，一个镜像可以引用另外一个镜像，注意，<code>Docker</code>不支持按需引入嗷，因此为了保证最后执行的镜像文件尽可能小，我们在选择基础镜像的时候尤其注意。</p>
+<p>容器（<code>container</code>），将镜像配合一系列的参数命令执行后会生成一个容器，这个容器就是你代码应用运行的地方，是一个独立的环境，内部环境由你所依赖的基础镜像决定，可以理解为沙箱。</p>
+<p>标签（<code>TAG</code>），即版本号，最新的默认为 <code>latest</code>，<code>latest</code>可以省略。</p>
+<h2 id="Docker-安装"><a href="#Docker-安装" class="headerlink" title="Docker 安装"></a>Docker 安装</h2><p>自己百度，注意如果是 Linux 环境，记得安装 docker-compose。Windows桌面版已经自动集成，不用额外安装。</p>
+<h2 id="Docker-常用命令"><a href="#Docker-常用命令" class="headerlink" title="Docker 常用命令"></a>Docker 常用命令</h2><p>可以简单把<code>Docker</code>理解为 npm</p>
+<p><code>npm</code> 包含拉取依赖，推送依赖的功能，因此 <code>Docker</code> 也有，即 <code>pull</code>， <code>push</code>。</p>
+<p><code>npm</code> 有仓库概念，因此 <code>Docker</code> 也有，<a href="https://hub.docker.com/" target="_blank" rel="noopener">DockerHub</a></p>
+<blockquote>
+<p><code>Docker</code> 常用命令如下</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> 拉取一个镜像</span><br><span class="line"></span><br><span class="line">docker pull &lt;IMAGE&gt;:&lt;TAG&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 打标签</span><br><span class="line"></span><br><span class="line">docker tag &lt;IMAGE&gt;:&lt;OLDTAG&gt; &lt;IMAGE&gt;:&lt;NEWTAG&gt; # 可以理解为重命名</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 推送镜像</span><br><span class="line"></span><br><span class="line">docker push &lt;REGISTRY&gt;/&lt;IMAGE&gt;:&lt;TAG&gt; # 类似于推送 npm 包</span><br></pre></td></tr></table></figure>
+
+<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p>我们要运行我们的代码环境，首先就得制作一个镜像，上文也说到，镜像是应用代码和依赖等打包成一个二进制文件，并且还可以引用别的镜像从而获得别的镜像的全部功能。</p>
+<p>那么我们将一个简单的由一个Vue项目打包出来的静态项目打包成镜像。</p>
+<p>首先我们思考一下平常发布模式下我们会怎么做，结合上述发布模式，大致为</p>
+<ul>
+<li>推送代码</li>
+<li>打包构建</li>
+<li>发布到服务器</li>
+<li>配置<code>nginx</code>代理</li>
+</ul>
+<p>那么我们逐步拆解，首先手动打包，会生成一个<code>dist</code>文件夹，我们接下来要做的，就是将这个打包生成的文件，添加打包成一个镜像。</p>
+<p>新建一个 <code>Dockerfile</code> 文件（注意没有后缀），写入以下内容</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">RUN</span> mkdir /app # 创建文件夹</span><br><span class="line"><span class="keyword">COPY</span> /dist /app # 复制文件</span><br></pre></td></tr></table></figure>
+
+<p>上述操作后，我们就将我们的代码包拷贝到了镜像中，接下来执行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">docker build . -t &lt;IMAGE&gt;:&lt;TAG&gt;</span><br></pre></td></tr></table></figure>
+
+<p>执行完毕之后，就会开始镜像构建，完成后可以使用 <code>docker images</code> 查看构建的镜像，类似于下面</p>
+<p><img src="//jdeseva.github.io/2021/09/28/CI-CD之容器化/QQ%E6%88%AA%E5%9B%BE20210928175249.png" alt="docker images"></p>
+<p>但是实际上我们上述操作的镜像还是不能运行的，结合发布模式我们不难看到，我们还需要一个 <code>nginx</code> 做静态资源服务器，做资源代理。</p>
+<p>因此，在项目下新建一个 <code>nginx.conf</code> 文件，作为 nginx 的配置文件，写入以下内容</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">user</span> nginx;</span><br><span class="line"></span><br><span class="line"><span class="attribute">worker_processes</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">error_log</span> /var/log/nginx/error.log <span class="literal">warn</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">pid</span> /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span> /etc/nginx/mime.types;</span><br><span class="line">    <span class="attribute">include</span> /etc/nginx/conf.d/<span class="regexp">*.conf</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">default_type</span> application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">log_format</span> main</span><br><span class="line"></span><br><span class="line">        <span class="string">'<span class="variable">$remote_addr</span> - <span class="variable">$remote_user</span> [<span class="variable">$time_local</span>] "<span class="variable">$request</span>" '</span></span><br><span class="line">        <span class="string">'<span class="variable">$status</span> <span class="variable">$body_bytes_sent</span> "<span class="variable">$http_referer</span>" '</span></span><br><span class="line">        <span class="string">'"<span class="variable">$http_user_agent</span>" "<span class="variable">$http_x_forwarded_for</span>"'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">access_log</span> /var/log/nginx/access.log main;</span><br><span class="line">    <span class="attribute">sendfile</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">keepalive_timeout</span> <span class="number">65</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">gzip</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">gzip_types</span> text/plain application/javascript text/css;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 虚拟主机server块</span></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="comment"># 端口</span></span><br><span class="line">        <span class="attribute">listen</span> <span class="number">4000</span>;</span><br><span class="line">        <span class="comment"># 匹配请求中的host值</span></span><br><span class="line">        <span class="attribute">server_name</span> localhost;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">root</span> /app;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">location</span> <span class="regexp">~ .*\.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm)$</span> &#123;</span><br><span class="line">            <span class="attribute">expires</span> <span class="number">7d</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">location</span> <span class="regexp">~ .*\.(?:js|css)$</span> &#123;</span><br><span class="line">            <span class="attribute">expires</span> <span class="number">7d</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">location</span> <span class="regexp">~ .*\.(?:htm|html)$</span> &#123;</span><br><span class="line">            <span class="attribute">add_header</span> Cache-Control</span><br><span class="line"></span><br><span class="line">                <span class="string">"private, no-store, no-cache, must-revalidate, proxy-revalidate"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span> /app;</span><br><span class="line">            <span class="attribute">index</span> index.html index.htm;</span><br><span class="line">            <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="attribute">error_page</span> <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span> /50x.html;</span><br><span class="line">        <span class="attribute">location</span> = /50x.html &#123;</span><br><span class="line">            <span class="attribute">root</span> /usr/share/nginx/html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后修改 <code>Dockerfile</code></p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx:stable <span class="comment"># 我们选择 stable 版本的 nginx 镜像</span></span><br><span class="line"><span class="keyword">RUN</span> mkdir /app # 创建文件夹</span><br><span class="line"><span class="keyword">COPY</span> /dist /app # 复制文件</span><br><span class="line"><span class="keyword">COPY</span> nginx.conf /etc/nginx/templates/default.template</span><br></pre></td></tr></table></figure>
+
+<p>然后重新构建镜像，执行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">docker build . -t test</span><br></pre></td></tr></table></figure>
+
+<p>执行完毕之后，然后运行镜像</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name test -d test # --name 指定容器名称 -d 后台运行容器</span><br></pre></td></tr></table></figure>
+
+<p>然后打开 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 就可以看到运行的项目</p>
+<h2 id="Docker进阶"><a href="#Docker进阶" class="headerlink" title="Docker进阶"></a>Docker进阶</h2><blockquote>
+<p>敬请期待！</p>
+</blockquote>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jdes</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jdeseva.github.io/2021/09/28/CI-CD之容器化/">https://jdeseva.github.io/2021/09/28/CI-CD之容器化/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jdeseva.github.io">沧海鲸歌</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/frame/">frame</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/01/05/Sentry/"><i class="fa fa-chevron-left">  </i><span>Sentry</span></a></div><div class="next-post pull-right"><a href="/2019/10/10/代码规范细则/"><span>代码规范细则</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '4f470a0032c7b5b98c25',
+  clientSecret: 'f4bccc7c504a2d96f617e633a8a684a16583c99f',
+  repo: 'JdesEva.github.io',
+  owner: 'JdesEva',
+  admin: 'JdesEva',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2022 By Jdes</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

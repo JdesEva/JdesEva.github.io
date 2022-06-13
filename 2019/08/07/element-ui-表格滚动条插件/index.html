@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="element-ui 表格滚动条插件"><meta name="keywords" content="frame"><meta name="author" content="Jdes"><meta name="copyright" content="Jdes"><title>element-ui 表格滚动条插件 | 沧海鲸歌</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '3.9.0'
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义-element-ui-表格滚动条插件"><span class="toc-text">自定义 element-ui 表格滚动条插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需求-amp-解决方案"><span class="toc-text">需求&amp;解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装-amp-使用"><span class="toc-text">安装&amp;使用</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://avatars2.githubusercontent.com/u/37232561?s=460&amp;v=4"></div><div class="author-info__name text-center">Jdes</div><div class="author-info__description text-center">禅道上bug修完了吗?~!</div><div class="follow-button"><a href="https://github.com/JdesEva">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">12</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">3</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">沧海鲸歌</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/tags/frame">Frame</a><a class="site-page" href="/tags/other">Other</a><a class="site-page" href="/tags/algorithm">Algorithm</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">element-ui 表格滚动条插件</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2019-08-07</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">941</span><span class="post-meta__separator">|</span><span>阅读时长: 3 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="自定义-element-ui-表格滚动条插件"><a href="#自定义-element-ui-表格滚动条插件" class="headerlink" title="自定义 element-ui 表格滚动条插件"></a>自定义 element-ui 表格滚动条插件</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>此文原发表于本人 CSDN，此文为 2019.08.07 最新迁移与修订。</p>
+</blockquote>
+<p>elemtent-ui 是基于 vue2.0 开发的优秀的 前端 UI 组件库，它秉着 简洁，快速，效率的原则，大大的方便了网站开发人员，减少了开发人员大量的书写组件时间。</p>
+<p>但是 element-ui 中的部分组件，并不能满足所有的开发（<del>产品</del> ）需求，比如 element-ui 中的 表格组件(el-table)，其表格组件功能很强大，但是当表格超出定义宽度之后出现的横向滚动条（浏览器默认滚动条）会影响整体页面美观，如下图</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/20190312155448544.png" alt="来自element-ui官方文档"></p>
+<a id="more"></a>
+
+<p>可能这个滚动条 已经让不少前端同学（<del>祭了天</del> ）头疼，但是相应的我们联想到 element-ui 也提供了一个隐藏的滚动条组件（<del>滑稽</del> ），如下图</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/20190312155801150.png" alt="垂直滚动条"></p>
+<p>横向的官方文档上有个 bug 例子</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/20190312155925313.png" alt="横向滚动条"></p>
+<p>可以看到，这边原生滚动条和 element-ui 提供的滚动条组件产生了冲突（原因等等会讲，略微提一下解决方案是修改样式）</p>
+<h3 id="需求-amp-解决方案"><a href="#需求-amp-解决方案" class="headerlink" title="需求&amp;解决方案"></a>需求&amp;解决方案</h3><p>某一天我接到了个需求，把表格横向滚动条（主要是横向），改成 el-scrollbar 样子的，于是我正常调用 el-scrollbar 对表格结构进行包裹，结果如下</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/20190312160350274.png" alt="代码片段"></p>
+<p>结果如下</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/20190312160456290.png" alt="结果图"></p>
+<p>（<del>于是我枯了</del> ）</p>
+<p>很显然，这样子并不行，那我们找找原因，为什么不行。打开控制台，可以看出相应的 DOM 节点已经生成，所以必然是样式问题导致（为什么会有样式问题？等等解释）</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/2019031216073775.png" alt="HTML"></p>
+<p>我们选中横向滚动条，发现它的 opacity 是 0</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/2019031216085174.png" alt="el-scrollbar"></p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/20190312160904624.png" alt="CSS"></p>
+<p>为什么会没有？其实很简单，原因是内部 DOM 节点的宽度接近于 el-scrollbar 初始化计算出来的宽度，导致 el-scrollbar 这个组件认为宽度不需要显示，而当窗口变化以后，宽度计算就交给了浏览器。</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/20190312161639816.png" alt="el-scrollbar"></p>
+<p>可以看出这边表格的显示宽度只有 364，只要解决了这个问题，就可以显示出滚动条，那么有什么办法使表格就以实际宽度显示在 DOM 中？（超出部分自动 overflow:hidden）</p>
+<p>翻看资料加上自己的理解，目前主要有 2 个解决方案</p>
+<ul>
+<li><p>重新计算 el-table 的实际宽度，当前节点渲染计算等全都是交给了浏览器进行计算，我们只需要手动计算 el-table 的真实宽度并赋值给对应节点，那么 el-scrollbar 就会进行再次计算进而显示滚动条</p>
+</li>
+<li><p>使用 css3 width 的新属性 fit-content ，即宽度适应内容，具体内容可以移步 <a href="https://www.w3cschool.cn/doc_css/css-fit-content.html" target="_blank" rel="noopener">fit-content</a>，不重复介绍。此属性目前在 IE 上未实现（<del>估计将来也不会</del> ）</p>
+</li>
+</ul>
+<p>并且在以上解决方案时，必须将原生的滚动条取消，否则样式重叠会很难看</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/2019031216334178.png" alt="CSS样式"><br>（.elTableBar 是父层样式选择器）</p>
+<p>有了以上的解决方案，于是我就利用 el-scrollbar 组件进行二次封装，完成了现在的 el-table 滚动条插件（已经兼容各种浏览器，由于 IE 内核手动计算，对性能有一定影响）</p>
+<h4 id="安装-amp-使用"><a href="#安装-amp-使用" class="headerlink" title="安装&amp;使用"></a>安装&amp;使用</h4><p>安装方法</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm i el-table-bar-base</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yarn add el-table-bar-base</span><br></pre></td></tr></table></figure>
+
+<p>使用方法如下</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> ElTableBar <span class="keyword">from</span> <span class="string">'el-table-bar-base'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'el-table-bar-base/lib/ElTableBar.css'</span></span><br><span class="line"></span><br><span class="line">Vue.use(ElTableBar)</span><br></pre></td></tr></table></figure>
+
+<p>模板语法如下</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/20190312162524237.png" alt="模板语法"></p>
+<p>效果图</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/20190312162603466.png" alt="效果图"></p>
+<p>同时 还支持 fixed 模式（此模式感谢 <a href="https://github.com/suchenglin2017" target="_blank" rel="noopener">suchenglin2017</a> 提出的 <a href="https://github.com/JdesEva/el-table-bar-base/issues/2" target="_blank" rel="noopener">issue</a>）</p>
+<p>具体如下</p>
+<p><img src="//jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/20190713134540164.png" alt="fixed 模式"></p>
+<p>即滚动条跟随屏幕</p>
+<p>具体可以查看<a href="https://github.com/JdesHZ/el-table-bar-base" target="_blank" rel="noopener">el-table-bar-base</a>获得支持。</p>
+<p>愉快的进行撸代码之旅吧！<del>~</del></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Jdes</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/">https://jdeseva.github.io/2019/08/07/element-ui-表格滚动条插件/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://jdeseva.github.io">沧海鲸歌</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/frame/">frame</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2019/08/08/Hexo更换主题-部署-自动开启issue评论/"><i class="fa fa-chevron-left">  </i><span>Hexo更换主题&amp;部署&amp;自动开启issue评论</span></a></div><div class="next-post pull-right"><a href="/2019/08/05/Multiply-Strings/"><span>Multiply Strings (大数相乘)</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '4f470a0032c7b5b98c25',
+  clientSecret: 'f4bccc7c504a2d96f617e633a8a684a16583c99f',
+  repo: 'JdesEva.github.io',
+  owner: 'JdesEva',
+  admin: 'JdesEva',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2022 By Jdes</div><div class="framework-info"><span>驱动 - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
